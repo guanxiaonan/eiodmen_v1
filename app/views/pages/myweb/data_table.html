@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>数据显示</title>
+  <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
+  <script type="text/javascript" src="/tableExport/libs/FileSaver/FileSaver.min.js"></script>
+  <script type="text/javascript" src="/tableExport/libs/jsPDF/jspdf.min.js"></script>
+  <script type="text/javascript" src="/tableExport/libs/jsPDF-AutoTable/jspdf.plugin.autotable.js"></script>
+  <script type="text/javascript" src="/tableExport/tableExport.js"></script>
+  <script src="/tableExport/build/pdfmake.min.js"></script>
+  <script src="/tableExport/build/vfs_fonts.js"></script>
+  <script type="text/javaScript">
+      function doExport() {
+
+          // $('#pdfstyles').tableExport({type:'pdf',
+          //                              jspdf: {orientation: 'p',
+          //                                      margins: {right: 20, left: 20, top: 30, bottom: 30},
+          //                                      autotable: {styles: {fillColor: 'inherit',
+          //                                                           textColor: 'inherit',
+          //                                                           fontStyle: 'inherit'},
+          //                                                  tableWidth: 'wrap'}}});
+          $('#pdfstyles').tableExport({type:'excel'});
+      }
+      function doExportpdf() {
+        // $('#pdfstyles').tableExport({type:'pdf',
+        //                              jspdf: {orientation: 'p',
+        //                                      margins: {right: 20, left: 20, top: 30, bottom: 30},
+        //                                      autotable: {styles: {fillColor: 'inherit',
+        //                                                           textColor: 'inherit',
+        //                                                           fontStyle: 'inherit'},
+        //                                                  tableWidth: 'wrap'}}});
+
+      }
+  </script>
+  <style type="text/css">
+  <!--
+  table  {
+    border-collapse: collapse;
+  }
+
+  table > thead > tr > td,
+  table > thead > tr > th {
+    background-color: gray;
+    border: 1px solid #efefef;
+    color: white;
+    padding: 0.2rem;
+  }
+
+  table > tbody > tr > td {
+    border: 1px solid #999;
+    padding: 0.2rem;
+  }
+  -->
+  </style>
+</head>
+<body>
+<a href="/myweb/getperpar">获取数据</a>
+<a href="#" onclick="doExport()">Export to xls</a>
+<a href="#" onclick="doExportpdf()">Export to pdf</a>
+<button class="btn btn-success" onClick ="$('#pdfstyles').tableExport({type: 'pdf', escape: 'false'});">CSV Export</button>
+<a href="/myweb/alldata">跳转详细数据页面</a>
+<!-- <table id="pdfstyles"> -->
+  <table id="pdfstyles" class="table table-striped">
+    <thead>
+      <tr>
+        <th>序号</th>
+        <th>巡查地点</th>
+        <th>巡查时间</th>
+        <th>巡查人员</th>
+        <th>终端名称</th>
+        <th>天气</th>
+      </tr>
+    </thead>
+    <tbody>
+    <% for(var i=0;i<data_perpar.length;i++){ %>
+        <tr>
+          <td><%= data_perpar[i].id_preparation %></td>
+          <td><%= data_perpar[i].stree+data_perpar[i].admin_village %></td>
+          <td><%= data_perpar[i].date+data_perpar[i].shijian %></td>
+          <td><%= data_perpar[i].people %></td>
+          <td><%= data_perpar[i].terminal %></td>
+          <td><%= data_perpar[i].weather %></td>
+        <% } %>
+      </tr>
+    </tbody>
+  </table>
+
+</body>
+</html>

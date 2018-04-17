@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>数据显示</title>
+  <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
+  <script type="text/javascript" src="/tableExport/libs/FileSaver/FileSaver.min.js"></script>
+  <script type="text/javascript" src="/tableExport/libs/jsPDF/jspdf.min.js"></script>
+  <script type="text/javascript" src="/tableExport/libs/jsPDF-AutoTable/jspdf.plugin.autotable.js"></script>
+  <script type="text/javascript" src="/tableExport/tableExport.js"></script>
+  <script src="/tableExport/build/pdfmake.min.js"></script>
+  <script src="/tableExport/build/vfs_fonts.js"></script>
+  <script type="text/javaScript">
+      function doExport() {
+
+          // $('#pdfstyles').tableExport({type:'pdf',
+          //                              jspdf: {orientation: 'p',
+          //                                      margins: {right: 20, left: 20, top: 30, bottom: 30},
+          //                                      autotable: {styles: {fillColor: 'inherit',
+          //                                                           textColor: 'inherit',
+          //                                                           fontStyle: 'inherit'},
+          //                                                  tableWidth: 'wrap'}}});
+          $('#pdfalldata').tableExport({type:'excel'});
+      }
+      function doExportpdf() {
+        $('#pdfstyles').tableExport({type:'pdf',
+                                     jspdf: {orientation: 'p',
+                                             margins: {right: 20, left: 20, top: 30, bottom: 30},
+                                             autotable: {styles: {fillColor: 'inherit',
+                                                                  textColor: 'inherit',
+                                                                  fontStyle: 'inherit'},
+                                                         tableWidth: 'wrap'}}});
+      }
+  </script>
+  <style type="text/css">
+  <!--
+  table  {
+    border-collapse: collapse;
+  }
+
+  table > thead > tr > td,
+  table > thead > tr > th {
+    background-color: gray;
+    border: 1px solid #efefef;
+    color: white;
+    padding: 0.2rem;
+  }
+
+  table > tbody > tr > td {
+    border: 1px solid #999;
+    padding: 0.2rem;
+  }
+  -->
+  </style>
+</head>
+<body>
+
+<a href="#" onclick="doExport()">Export to xls</a>
+<a href="#" onclick="doExportpdf()">Export to pdf</a>
+<a href="/myweb/alldata"">显示所有数据</a>
+<!-- <table id="pdfstyles"> -->
+<h5 class="sub-header"><input width="30"></input>（乡镇）街道<input></input>行政村处理设施巡查、检查记录表</h5>
+<div class="table-responsive">
+  <table class="table table-striped" id="pdfalldata">
+    <thead>
+      <tr>
+        <th>================</th>
+        <th>================</th>
+        <th>================</th>
+        <th>================</th>
+
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>巡查检查日期:</td>
+        <td></td>
+        <td>天气:</td>
+        <td></td>
+
+      </tr>
+      <tr>
+        <td>自然村:</td>
+        <td></td>
+        <td>终端名称:</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>巡查人员:</td>
+        <td colspan="3"></td>
+
+      </tr>
+      <tr>
+        <td colspan="4" align="center">巡查内容</td>
+
+      </tr>
+      <tr>
+        <td>处理工艺：</td>
+        <td colspan="3"></td>
+
+      </tr>
+      <tr>
+        <td>进水水量：</td>
+        <td></td>
+        <td rowspan="2">出水水量：</td>
+        <td>外观：</td>
+
+      </tr>
+      <tr>
+        <td>出水口</td>
+        <td></td>
+        <td>臭气：</td>
+
+
+      </tr>
+      <tr>
+        <td colspan="4" align="center">终端设备</td>
+
+      </tr>
+      <tr>
+        <td colspan="2" align="center">设备情况</td>
+        <td colspan="2" align="center">构筑物情况</td>
+
+      </tr>
+      <tr>
+        <td>格珊：</td>
+        <td></td>
+        <td>集水井/调节池：</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>控制柜：</td>
+        <td></td>
+        <td>初沉池：</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>风机：</td>
+        <td></td>
+        <td>厌氧池/兼氧池：</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>提升泵：</td>
+        <td></td>
+        <td>好氧池：</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>回流泵：</td>
+        <td></td>
+        <td>沉淀池：</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>流量计：</td>
+        <td></td>
+        <td>人工湿地：</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>管道及阀门：</td>
+        <td></td>
+        <td>出水井：</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>控制房：</td>
+        <td></td>
+        <td>终端场地：</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>液位控制系统：</td>
+        <td></td>
+        <td>终端围栏</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>告示牌：</td>
+        <td></td>
+        <td>各类井口及井盖：</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>在线监控设备：</td>
+        <td></td>
+        <td>阀门井：</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>其他设备：</td>
+        <td></td>
+        <td>其他设施：</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td colspan="4" align="center">管网设施</td>
+      </tr>
+      <tr>
+        <td>管网：</td>
+        <td></td>
+        <td>窨井：</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>路面：</td>
+        <td></td>
+        <td>窨井盖：</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td colspan="4" align="center">接户设施</td>
+      </tr>
+      <tr>
+        <td>接户管：</td>
+        <td></td>
+        <td>接户井：</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>户用化粪池或隔油池：</td>
+        <td></td>
+        <td>厨房清扫井：</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>道路：</td>
+        <td colspan="3"></td>
+      </tr>
+      <tr>
+        <td>其他问题：</td>
+        <td colspan="3"></td>
+      </tr>
+
+    </tbody>
+  </table>
+</div>
+
+</body>
+</html>
